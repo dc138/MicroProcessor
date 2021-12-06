@@ -4,14 +4,18 @@
 
 gamerule maxCommandChainLength 1000000
 
-# MP function IOs
+# Constants and global scoreboards
 
-data merge storage mp:io {in:[0,0,0,0,0,0,0,0,0,0]}
-data merge storage mp:io {out:[0,0,0,0,0,0,0,0,0,0]}
+#declare entity $i
+#declare entity $temp
 
-# Constants
+#declare storage mp:fun Function arguments storage
 
-data merge storage mp:consts {numbers:[0,1,2,3,4,5,6,7,8,9]}
+#declare storage mp:consts Constants storage object
+data merge storage mp:consts {numbers:[0]}
+
+#declare objective mp.var Variable scoreboard
+scoreboard objectives add mp.var dummy
 
 # Modules
 

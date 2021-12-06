@@ -1,13 +1,9 @@
-scoreboard objectives add mp.ram dummy
-
-scoreboard players set $val mp.ram 0
-scoreboard players set $len mp.ram 256
-
+#declare storage mp:ram RAM storage
 data merge storage mp:ram {state:[]}
+data merge storage mp:ram {len:256}
 
-scoreboard players operation $i mp.ram = $len mp.ram
+scoreboard players set $i mp.var 256
 
 function mp:priv/ram/load.loop.1
 
-data remove storage mp:ram val
-scoreboard players reset $i mp.ram
+scoreboard players reset $i mp.var
