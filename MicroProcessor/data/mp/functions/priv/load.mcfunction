@@ -10,6 +10,7 @@ gamerule maxCommandChainLength 1000000
 #declare entity $temp
 
 #declare storage mp:fun Function arguments storage
+#declare storage mp:var Variable storage
 
 #declare storage mp:consts Constants storage object
 data merge storage mp:consts {numbers:[0]}
