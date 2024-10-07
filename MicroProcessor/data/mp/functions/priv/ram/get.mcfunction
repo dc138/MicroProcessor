@@ -5,6 +5,7 @@
 
 execute store result score $current_len mp.var run data get storage mp:ram len
 execute store result score $wanted_len mp.var run data get storage mp:fun ram.get.idx
+execute store result score $idx mp.var run data get storage mp:fun ram.get.idx
 scoreboard players add $wanted_len mp.var 1
 
 execute if score $wanted_len mp.var > $current_len mp.var run execute store result storage mp:fun ram.enlarge.len int 1 run scoreboard players get $wanted_len mp.var
@@ -16,4 +17,7 @@ data modify storage mp:var ram.copy set from storage mp:ram state
 
 function mp:priv/ram/get.1
 
+execute store result score $val mp.var run data get storage mp:var ram.copy[-1]
 data modify storage mp:fun ram.get.val set from storage mp:var ram.copy[-1]
+
+tellraw @a[tag=mp_debug_msg] [{"text": "RAM", "bold": true}, {"text": " get idx ", "bold": false}, {"score":{"name": "$idx", "objective": "mp.var"},"bold": false, "color": "aqua"}, {"text": " -> ", "color": "white", "bold": false}, {"score":{"name": "$val","objective": "mp.var"},"bold": false, "color": "gold"}]
